@@ -1,11 +1,11 @@
-import './App.css';
+import style from'./App.module.css';
 import {Routes,Route} from "react-router-dom"
 import Home from './pages/Home/Home';
 import ShoppingCart from './pages/ShoppingCart';
 import Profile from './pages/Profile';
 function App() {
   return (
-    <div className="App">
+    <div className={style.container}>
       <Routes>
         <Route path='/' element={<Home/>}/>
         <Route path='shoppingcart' element={<ShoppingCart/>}/>
