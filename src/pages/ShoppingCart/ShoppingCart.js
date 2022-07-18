@@ -1,4 +1,4 @@
-import "./Shoppingcart.module.css";
+import "./ShoppingCart.module.css";
 function ShoppingCart(){
     return (
         <div>
