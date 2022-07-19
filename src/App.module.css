@@ -3,4 +3,5 @@
     height: 1334px;
     margin: 100px auto 100px auto;
     border: 1px solid black;
+    position: relative;
 }

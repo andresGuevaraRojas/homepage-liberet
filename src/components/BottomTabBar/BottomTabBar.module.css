@@ -1,0 +1,31 @@
+.container{
+    background-color: var(--secondary-gray);    
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+}
+.menu{
+    display: flex;    
+    justify-content: space-around;
+    align-items: center;
+    list-style: none;      
+}
+
+.navLink{
+    text-decoration: none;
+    display: block;
+    color: var(--primary-black);   
+    padding: 1rem;  
+}
+       
+.navLinkActive{    
+    text-decoration: none;
+    display: block;
+    color: var(--primary-orange-alt);
+    padding: 1rem;  
+    
+}
+.icon{
+    color: inherit;
+    font-size: 2rem;
+}
