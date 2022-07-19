@@ -1,0 +1,18 @@
+.period{
+    padding: 10px calc(2rem + 5px);
+    border: 1px solid var(--secondary-gray);
+    border-radius: 8px;
+    margin-bottom: 10px;
+}
+.titleText{
+    font-weight: bold;
+}
+.titleIcon{
+    margin-right: 5px;
+    font-size: 2rem;
+    color: var(--primary-orange);    
+}
+.titleContainer{
+    display: flex;
+    align-items: center;
+}

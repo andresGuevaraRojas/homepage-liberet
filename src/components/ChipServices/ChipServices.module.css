@@ -1,0 +1,12 @@
+.titleText{
+    font-weight: bold;
+}
+.titleIcon{
+    margin-right: 5px;
+    font-size: 2rem;
+    color: var(--primary-orange);    
+}
+.titleContainer{
+    display: flex;
+    align-items: center;
+}

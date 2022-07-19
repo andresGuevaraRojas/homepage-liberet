@@ -1,14 +1,19 @@
-import Chip from "../../components/Chip/Chip";
+import ChipMealCounter from "../../components/ChipMealCounter";
+import ChipServices from "../../components/ChipServices";
+import ChipTimePeriod from "../../components/ChipTimePeriod";
 import SearchBar from "../../components/SearchBar";
 import Weekend from "../../components/Weekend";
-import {MdAccessTime} from "react-icons/md";
-import "./Home.module.css";
+import style from "./Home.module.css";
 function Home(){
     return (
-        <div>
+        <div className={style.container}>
             <SearchBar/>
-            <Weekend/>
-            <Chip icon={MdAccessTime} text={'2:00 - 3:00 pm'}/>
+            <Weekend/>        
+            <div className={style.chips}>
+                <ChipTimePeriod/>              
+                <ChipServices selectedService={'Beef'}/>
+                <ChipMealCounter/>
+            </div>            
         </div>
     )
 }
