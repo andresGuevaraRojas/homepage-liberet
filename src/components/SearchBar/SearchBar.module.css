@@ -1,0 +1,24 @@
+.container{
+    padding: 1rem 2rem;
+    display: flex;
+    justify-content: space-around;
+    border-bottom: 2px solid var(--secondary-gray);
+}
+.icon{    
+    font-size: 2rem;   
+}
+.location{
+    color: var(--secondary-red);
+}
+.input{
+    flex: 1;
+    margin-left: 1rem;
+    margin-right: 1rem;
+    border: none;
+    padding: 5px;
+    font-size: 1rem;
+    font-weight: bold;
+}
+input:focus{
+    border: none;
+}
