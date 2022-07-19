@@ -7,33 +7,40 @@ import SearchBar from "../../components/SearchBar";
 import Weekend from "../../components/Weekend";
 import MealService from "../../services/MealService";
 import style from "./Home.module.css";
-function Home(){
+function Home() {
 
-    const [category,setCategory] = useState('Beef')    
-    const [meals,setMeals] = useState([]);
-    useEffect(()=>{
-        const getData = async()=>{
+    const [category, setCategory] = useState('Beef');
+    const [loading, setLoading] = useState(false)
+    const [meals, setMeals] = useState([]);
+    useEffect(() => {
+        const getData = async () => {
+            setLoading(true)
             const meals = await MealService.getMealByCategory(category);
             setMeals(meals);
+            setLoading(false)
         }
         getData();
-    },[category])
+    }, [category])
     return (
         <div className={style.container}>
-            <SearchBar/>
-            <Weekend/>        
-            <div className={style.chips}>
-                <ChipTimePeriod/>              
-                <ChipServices selectedService={category}/>
-                <ChipMealCounter/>
-            </div>            
-            <div>
-                {
-                    meals.map(meal=>
-                        <MealCard {...meal}/>
-                    )
-                }
-            </div> 
+            <SearchBar />
+            <Weekend />
+            <div className={style.content}>
+                <div className={style.chips}>
+                    <ChipTimePeriod />
+                    <ChipServices selectedService={category} />
+                    <ChipMealCounter />
+                </div>
+
+                <div className={style.meals}>
+                    {
+                        loading ? 'Cargando...' :
+                            meals.map(meal =>
+                                <MealCard {...meal} className={style.meal} />
+                            )
+                    }
+                </div>
+            </div>
         </div>
     )
 }
