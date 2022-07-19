@@ -1,0 +1,15 @@
+.container{
+    border-radius: 26px;
+    border: 1px solid var(--secondary-gray);
+    padding: 5px;
+    display: inline-flex;
+    align-items: center;
+}
+.text{
+    font-weight: bold;
+}
+.icon{
+    margin-right: 5px;
+    font-size: 2rem;
+    color: var(--primary-orange);
+}
