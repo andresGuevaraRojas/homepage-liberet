@@ -1,0 +1,28 @@
+.container{
+    display: flex;
+    justify-content: space-around;
+    padding: 10px;
+}
+.item{
+    text-align: center;
+}
+.dayName,.dayNumber{
+    display: block;
+}
+.dayName{
+    font-weight: bold;
+    margin-bottom: 5px;
+}
+.dayNumber{
+    width: 2rem;
+    height: 2rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;    
+    cursor: pointer;
+}
+.dayNumberSelected{
+    border-radius: 50%;
+    background-color: var(--primary-orange);
+    color: var(--primary-white);
+}
