@@ -12,11 +12,18 @@ function Home() {
     const [category, setCategory] = useState('Beef');
     const [loading, setLoading] = useState(false)
     const [meals, setMeals] = useState([]);
+    const [categories,setCategories] = useState([])
+
+    const handleServiceSelect = (category)=>{
+        setCategory(category)
+    }
     useEffect(() => {
         const getData = async () => {
             setLoading(true)
             const meals = await MealService.getMealByCategory(category);
+            const categories = await MealService.getCategories();
             setMeals(meals);
+            setCategories(categories);
             setLoading(false)
         }
         getData();
@@ -28,7 +35,7 @@ function Home() {
             <div className={style.content}>
                 <div className={style.chips}>
                     <ChipTimePeriod />
-                    <ChipServices selectedService={category} />
+                    <ChipServices selectedService={category} services={categories} onSelectService={handleServiceSelect} />
                     <ChipMealCounter />
                 </div>
 
@@ -36,7 +43,7 @@ function Home() {
                     {
                         loading ? 'Cargando...' :
                             meals.map(meal =>
-                                <MealCard {...meal} className={style.meal} />
+                                <MealCard {...meal} className={style.meal} key={meal.id}/>
                             )
                     }
                 </div>

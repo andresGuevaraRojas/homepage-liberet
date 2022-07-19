@@ -34,6 +34,18 @@ class MealService{
 
         return detail;        
     }
+    static async getCategories(){
+        const categoriesFetch = await fetch(`${this.baseUrl}/categories.php`);
+        const categoriesResult = await categoriesFetch.json();    
+
+        const categories = categoriesResult.categories.map(category=>(
+            {
+                id:category.idCategory,
+                text:category.strCategory,              
+            }
+        ))        
+        return categories;
+    }
 }
 
 export default MealService;
