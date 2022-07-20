@@ -8,6 +8,10 @@ function ChipServices({services = [],selectedService,onSelectService}) {
     const toggleShow = ()=>{
         setShow(show=>!show);
     }   
+    const handleServiceSelect = (service)=>{
+        onSelectService(service.text);
+        setShow(false);
+    }
     return (
         <>
             <Chip icon={MdRestaurant} text={selectedService} onClick={toggleShow} />
@@ -17,7 +21,7 @@ function ChipServices({services = [],selectedService,onSelectService}) {
                         <div
                             className={style.service}
                             key={service.id}
-                            onClick={() => {onSelectService(service)}}
+                            onClick={()=>{handleServiceSelect(service)}}
                         >
                             {service.text}
                         </div>

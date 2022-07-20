@@ -10,3 +10,9 @@
     display: flex;
     align-items: center;
 }
+.service{
+    padding: 10px calc(2rem + 5px);
+    border: 1px solid var(--secondary-gray);
+    border-radius: 8px;
+    margin-bottom: 10px;
+}

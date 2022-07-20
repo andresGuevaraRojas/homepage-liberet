@@ -1,8 +1,30 @@
 .container{
-    position: relative;
+    position: relative;    
+    height: 100%;
+    display: flex;    
+    flex-direction: column;
+}
+.content{
+    background-color: var(--secondary-gray);
+    padding: 40px;    
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    overflow: auto;
 }
 .chips{
     display: flex;
     justify-content: space-around;
     margin-bottom: 20px;
+}
+.meals{  
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    flex: 1;
+    overflow: auto;
+    padding-bottom: 40px;
+}
+.meal{
+    margin:10px;
 }

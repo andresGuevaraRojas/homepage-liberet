@@ -4,27 +4,26 @@ import {MdAccessTime} from "react-icons/md";
 import Modal from "../Modal";
 import timePeriods from "./timePeriods";
 import style from "./ChipTimePeriod.module.css";
-function ChipTimePeriod(){
+function ChipTimePeriod({onSelectPeriod,period}){
     const [show,setShow] = useState(false);
-    const [selectedPeriod,setSelectedPeriod] = useState('2:00 - 3:00 pm')
 
     const toggleShow = ()=>{
         setShow(show=>!show);
     }
-    const selectPeriod = (period)=>{
-       setSelectedPeriod(period);
+    const handleSelectPeriod = (period)=>{      
+       onSelectPeriod(period)
        setShow(false);
     }
     return (
         <>
-        <Chip icon={MdAccessTime} text={selectedPeriod} onClick={toggleShow}/>      
+        <Chip icon={MdAccessTime} text={period} onClick={toggleShow}/>      
             <Modal show={show} title={<Title/>}>
                 {
                     timePeriods.map(time=>(
                         <div 
                             className={style.period} 
                             key={time.id} 
-                            onClick={()=>{selectPeriod(time.text)}}
+                            onClick={()=>{handleSelectPeriod(time.text)}}
                         >
                             {time.text}
                         </div>                        

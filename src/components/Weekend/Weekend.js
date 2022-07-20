@@ -1,20 +1,18 @@
 import WeekendDays from "./weekendDays";
 import style from "./Weekend.module.css";
-import { useState } from "react";
 
-function Weekend() {
-    const [selectedDay,setSelectedDay] = useState("04");
-    return (
+function Weekend({day,onSelectDay}) {    
+    return (        
         <div className={style.container}>
             {
-                WeekendDays.map(day => (
-                    <div className={style.item} key={day.number}>
-                        <span className={style.dayName}>{day.name}</span>
+                WeekendDays.map(dayItem => (
+                    <div className={style.item} key={dayItem.number}>
+                        <span className={style.dayName}>{dayItem.name}</span>
                         <span 
-                            className={selectedDay == day.number?`${style.dayNumber} ${style.dayNumberSelected}`:style.dayNumber}
-                            onClick={()=>{setSelectedDay(day.number)}}
+                            className={day.number == dayItem.number?`${style.dayNumber} ${style.dayNumberSelected}`:style.dayNumber}
+                            onClick={()=>{onSelectDay(dayItem)}}
                         >
-                            {day.number}
+                            {dayItem.number}
                         </span>
                     </div>
                 ))
