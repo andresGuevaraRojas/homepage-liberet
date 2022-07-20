@@ -5,17 +5,24 @@ import ChipTimePeriod from "../../components/ChipTimePeriod";
 import MealCard from "../../components/MealCard";
 import SearchBar from "../../components/SearchBar";
 import Weekend from "../../components/Weekend";
+import { useAppContext } from "../../providers/AppProvider";
 import MealService from "../../services/MealService";
 import style from "./Home.module.css";
 function Home() {
 
-    const [category, setCategory] = useState('Beef');
+    const {category,setCategory,period,setPeriod,day,setDay} = useAppContext();
     const [loading, setLoading] = useState(false)
     const [meals, setMeals] = useState([]);
     const [categories,setCategories] = useState([])
 
     const handleServiceSelect = (category)=>{
         setCategory(category)
+    }
+    const handleSelectPeriod = (period)=>{
+        setPeriod(period);
+    }
+    const handleSelectDay = (day)=>{
+        setDay(day)
     }
     useEffect(() => {
         const getData = async () => {
@@ -31,10 +38,10 @@ function Home() {
     return (
         <div className={style.container}>
             <SearchBar />
-            <Weekend />
+            <Weekend day={day} onSelectDay={handleSelectDay} />
             <div className={style.content}>
                 <div className={style.chips}>
-                    <ChipTimePeriod />
+                    <ChipTimePeriod period={period} onSelectPeriod = {handleSelectPeriod}/>
                     <ChipServices selectedService={category} services={categories} onSelectService={handleServiceSelect} />
                     <ChipMealCounter />
                 </div>
